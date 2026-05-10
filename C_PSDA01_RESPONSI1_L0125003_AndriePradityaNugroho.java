@@ -1,11 +1,11 @@
 import java.util.*;
 
 class Node {
-    int key;
+    String name;
     Node left, right;
 
-    public Node(int item) {
-        key = item;
+    public Node(String item) {
+        name = item;
         left = right = null;
     }
 }
@@ -17,41 +17,57 @@ class BinarySearchTree {
         root = null;
     }
 
-    // SEARCH
-    Node search(Node root, int key) {
-        if (root == null || root.key == key)
-            return root;
-
-        if (key < root.key)
-            return search(root.left, key);
-
-        return search(root.right);
-    }
-
     // INSERT
-    Node insert(Node root, int key) {
+    Node insert(Node root, String name) {
         if (root == null) {
-            root = new Node(key);
+            root = new Node(name);
             return root;
         }
 
-        if (key < root.key)
-            root.left = insert(root.left, key);
+        if (name.compareTo(root.name) < 0) // Comparing the value of the strings by each char
+            root.left = insert(root.left, name);
         else
-            root.right = insert(root.right, key);
+            root.right = insert(root.right, name);
 
         return root;
     }
+    
+    // SEARCH
+    Node search(Node root, String name) {
+        if (root == null || name.equals(root.name))
+            return root;
+
+        if (name.compareTo(root.name) < 0)
+            return search(root.left, name);
+
+        return search(root.right, name);
+    }
+
+    // Searching the node with the lowest value
+    Node minValueNode(Node node) {
+        Node current = node;
+        while (current.left != null)
+            current = current.left;
+        return current;
+    }
+    // Print all node in-order
+    void printlist(Node root) {
+        if (root != null) {
+            printlist(root.left);
+            System.out.print(root.name + " ");
+            printlist(root.right);
+        }
+    }
 
     // DELETE
-    Node deleteNode(Node root, int key) {
+    Node deleteNode(Node root, String name) {
         if (root == null)
             return root;
 
-        if (key < root.key)
-            root.left = deleteNode(root.left, key);
-        else if (key > root.key)
-            root.right = deleteNode(root.right, key);
+        if (name.compareTo(root.name) < 0)
+            root.left = deleteNode(root.left, name);
+        else if (name.compareTo(root.name) > 0)
+            root.right = deleteNode(root.right, name);
         else {
             if (root.left == null)
                 return root.right;
@@ -59,8 +75,8 @@ class BinarySearchTree {
                 return root.left;
 
             Node temp = minValueNode(root.right);
-            root.key = temp.key;
-            root.right = deleteNode(root.right, temp.key);
+            root.name = temp.name;
+            root.right = deleteNode(root.right, temp.name);
         }
 
         return root;
@@ -70,6 +86,21 @@ class BinarySearchTree {
 
 public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
   public static void main(String[] args){
-    System.out.println("Hello World");
+    Scanner userInput = new Scanner(System.in);
+    HashMap<String, String> map = new HashMap<>();
+    BinarySearchTree bst = new BinarySearchTree();
+
+    System.out.println("input kode (ADD, DELETE, UPDATE) dan nama:");
+    String input = userInput.nextLine();
+    String[] parts = input.split(" ", 2);
+    
+    switch (parts[0]){
+      case "ADD":
+        break;
+      case "DELETE":
+        break;
+      case "UPDATE":
+        break;
+    }
   }
 }
