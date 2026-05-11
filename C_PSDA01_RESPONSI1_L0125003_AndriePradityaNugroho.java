@@ -90,17 +90,36 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
     HashMap<String, String> map = new HashMap<>();
     BinarySearchTree bst = new BinarySearchTree();
 
-    System.out.println("input kode (ADD, DELETE, UPDATE) dan nama:");
-    String input = userInput.nextLine();
-    String[] parts = input.split(" ", 2);
+    System.out.println("Saved contacts:");
+    bst.printlist(bst.root);
+    while(true){
+      System.out.println("input kode (ADD, DELETE, UPDATE, EXIT, GET, SEARCH) dan nama:");
+      String input = userInput.nextLine();
+      if (input.equals("EXIT")){
+        return;
+      }
+      String[] parts = input.split(" ", 2);
     
-    switch (parts[0]){
-      case "ADD":
-        break;
-      case "DELETE":
-        break;
-      case "UPDATE":
-        break;
+      switch (parts[0]){
+        case "ADD":
+          if (bst.search(bst.root, parts[1]) != null){
+            System.out.println("Contact already exists.");
+            break;
+          }
+          System.out.println("Input phone numbers:");
+          String phone = userInput.nextLine();
+          bst.root = bst.insert(bst.root, parts[0]);
+          map.put(parts[0], phone);
+          break;
+        case "DELETE":
+          break;
+        case "UPDATE":
+          break;
+        case "GET":
+          break;
+        case "SEARCH":
+          break;
+      }
     }
   }
 }
