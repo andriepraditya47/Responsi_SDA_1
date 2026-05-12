@@ -105,15 +105,19 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
     
     while(true){
     System.out.println("\nSaved contacts:");
-    bst.printlist(bst.root);
-
+    if(bst.root == null){
+      System.out.println("No contacts saved yet.");
+    }
+    else{
+          bst.printlist(bst.root);
+    }
       System.out.println("\ninput command and name (use HELP to list all commands):");
       String input = userInput.nextLine();
       
-      if (input.startsWith("EXIT")){
+      if (input.equals("EXIT")){
         return;
       }
-      else if (input.startsWith("HELP")){
+      else if (input.equals("HELP")){
           System.out.println("ADD: Input a new contact if not exist yet.");
           System.out.println("DELETE: Delete an existing contact with given name.");
           System.out.println("UPDATE: Update the phone number of specified contact.");
@@ -131,7 +135,7 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
       }
         Node contactExists = bst.search(bst.root, parts[1]);
       
-        switch (parts[0]){
+        switch (parts[0].toUpperCase()){
           case "ADD":
             if (contactExists != null){
               System.out.println("Contact already exists.");
