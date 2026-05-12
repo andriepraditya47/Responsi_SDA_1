@@ -96,7 +96,7 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
       System.out.println("input kode (ADD, DELETE, UPDATE, EXIT, GET, SEARCH) dan nama:");
       String input = userInput.nextLine();
       if (input.equals("EXIT")){
-        return;
+return;
       }
       String[] parts = input.split(" ", 2);
     
@@ -108,10 +108,16 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
           }
           System.out.println("Input phone numbers:");
           String phone = userInput.nextLine();
-          bst.root = bst.insert(bst.root, parts[0]);
-          map.put(parts[0], phone);
+          bst.root = bst.insert(bst.root, parts[1]);
+          map.put(parts[1], phone);
           break;
         case "DELETE":
+            if (bst.search(bst.root, parts[1]) == null){
+            System.out.println("Contact does not exist.");
+            break;
+            }
+
+ 
           break;
         case "UPDATE":
           break;
