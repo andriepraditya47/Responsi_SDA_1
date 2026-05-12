@@ -1,3 +1,7 @@
+/* 
+Contacts book oleh Andrie Praditya Nugroho L0125003, dapat diakses di 
+https://github.com/andriepraditya47/Responsi_SDA_1
+*/
 import java.util.*;
 
 class Node {
@@ -111,7 +115,7 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
     else{
           bst.printlist(bst.root);
     }
-      System.out.println("\ninput command and name (use HELP to list all commands):");
+      System.out.println("\ninput command and name:");
       String input = userInput.nextLine();
       
       if (input.equals("EXIT")){
@@ -121,9 +125,10 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
           System.out.println("ADD: Input a new contact if not exist yet.");
           System.out.println("DELETE: Delete an existing contact with given name.");
           System.out.println("UPDATE: Update the phone number of specified contact.");
-          System.out.println("GET: Print the contact's name with the phone number");
+          System.out.println("GET: Print the contact's name with the phone number.");
           System.out.println("SEARCH: Print a list of contact's name with the specified keyword.");
           System.out.println("EXIT: Quit the program.");
+          System.out.println("HELP: List all commands");
       }
 
       else{
