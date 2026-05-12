@@ -142,7 +142,7 @@ public class C_PSDA01_RESPONSI1_L0125003_AndriePradityaNugroho {
                     "SEARCH: Print a list of contact's name with the specified keyword."
                 );
                 System.out.println("EXIT: Quit the program.");
-                System.out.println("HISTORY: Prints all logs made.");
+                System.out.println("HISTORY: Prints last 10 logs made.");
                 System.out.println("HELP: List all commands");
             } else if (input.equals("HISTORY")) {
                 if (log.isEmpty()) {
