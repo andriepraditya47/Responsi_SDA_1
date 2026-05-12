@@ -1,5 +1,5 @@
 # CONTACTS BOOK
-Program to saves contact's name and their phone number using BST to search through contacts quickly and map to store contact's phone number.
+Program to saves contact's name and their phone number using BST to search through contacts quickly and map to store contact's phone number with the addition of LinkedList to store 10 last logs made.
 
 List of all commands:
 
